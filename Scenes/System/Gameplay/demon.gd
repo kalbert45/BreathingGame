@@ -35,5 +35,4 @@ func reset():
 	self.hit = false
 
 func _on_area_2d_area_entered(area):
-	if color == area.color:
-		self.hit = true
+	self.hit = true

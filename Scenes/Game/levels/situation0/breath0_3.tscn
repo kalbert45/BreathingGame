@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://tkywnkli7puv"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_cuhtw"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_fugma"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_4c0av"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_gmchb"]
+[ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="5_0v60j"]
+
+[node name="level" instance=ExtResource("1_cuhtw")]
+level = 3
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_fugma")]
+position = Vector2(466, 188)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_4c0av")]
+init_rotation = 180
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_gmchb")]
+position = Vector2(-120, -69)
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_gmchb")]
+position = Vector2(-115, 61)
+
+[node name="source2" parent="sources" index="1" instance=ExtResource("2_fugma")]
+position = Vector2(148, 186)
+
+[node name="wheel" parent="sources/source2" index="1" instance=ExtResource("3_4c0av")]
+init_rotation = 180
+
+[node name="projectile" parent="sources/source2/wheel" index="1" instance=ExtResource("4_gmchb")]
+position = Vector2(116, -59)
+
+[node name="projectile2" parent="sources/source2/wheel" index="2" instance=ExtResource("4_gmchb")]
+position = Vector2(121, 55)
+
+[node name="demon" parent="demons" index="0" instance=ExtResource("5_0v60j")]
+position = Vector2(400, 60)
+
+[node name="demon2" parent="demons" index="1" instance=ExtResource("5_0v60j")]
+position = Vector2(400, 300)
+
+[node name="demon3" parent="demons" index="2" instance=ExtResource("5_0v60j")]
+position = Vector2(240, 60)
+
+[node name="demon4" parent="demons" index="3" instance=ExtResource("5_0v60j")]
+position = Vector2(240, 300)

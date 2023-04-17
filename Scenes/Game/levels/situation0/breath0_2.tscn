@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://js8kg0sdsals"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_yt0ns"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_20agc"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_l4cyi"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_gwynu"]
+[ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="5_a2nnt"]
+
+[node name="level" instance=ExtResource("1_yt0ns")]
+level = 2
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_20agc")]
+position = Vector2(320, 240)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_l4cyi")]
+init_rotation = 90
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_gwynu")]
+position = Vector2(-99, 0)
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_gwynu")]
+position = Vector2(57, -78)
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_l4cyi")]
+layer = 2
+init_rotation = 180
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_gwynu")]
+position = Vector2(99, 0)
+
+[node name="projectile2" parent="sources/source/wheel2" index="2" instance=ExtResource("4_gwynu")]
+position = Vector2(-46, -71)
+
+[node name="demon" parent="demons" index="0" instance=ExtResource("5_a2nnt")]
+position = Vector2(134, 238)
+
+[node name="demon2" parent="demons" index="1" instance=ExtResource("5_a2nnt")]
+position = Vector2(435, 83)
+
+[node name="demon3" parent="demons" index="2" instance=ExtResource("5_a2nnt")]
+position = Vector2(216, 85)
+
+[node name="demon4" parent="demons" index="3" instance=ExtResource("5_a2nnt")]
+position = Vector2(498, 238)

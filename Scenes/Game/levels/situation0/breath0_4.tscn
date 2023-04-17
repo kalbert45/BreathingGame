@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhku6npnwu3n5"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_jkiik"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_y7pu3"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_x4tc4"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_sgj4s"]
+[ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="5_kp7x0"]
+
+[node name="level" instance=ExtResource("1_jkiik")]
+level = 4
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_y7pu3")]
+position = Vector2(320, 180)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_x4tc4")]
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_sgj4s")]
+position = Vector2(-48, 0)
+type = 1
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_sgj4s")]
+position = Vector2(43, 0)
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_x4tc4")]
+layer = 2
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_sgj4s")]
+position = Vector2(-72, 0)
+type = 1
+
+[node name="projectile2" parent="sources/source/wheel2" index="2" instance=ExtResource("4_sgj4s")]
+position = Vector2(67, 0)
+
+[node name="demon" parent="demons" index="0" instance=ExtResource("5_kp7x0")]
+position = Vector2(60, 80)
+
+[node name="demon2" parent="demons" index="1" instance=ExtResource("5_kp7x0")]
+position = Vector2(60, 180)
+
+[node name="demon3" parent="demons" index="2" instance=ExtResource("5_kp7x0")]
+position = Vector2(60, 280)
+
+[node name="demon4" parent="demons" index="3" instance=ExtResource("5_kp7x0")]
+position = Vector2(520, 80)
+
+[node name="demon5" parent="demons" index="4" instance=ExtResource("5_kp7x0")]
+position = Vector2(520, 180)
+
+[node name="demon6" parent="demons" index="5" instance=ExtResource("5_kp7x0")]
+position = Vector2(520, 280)

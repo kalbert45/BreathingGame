@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dklidnpbtdg0h"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_hos7h"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_8ivtr"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_lerdr"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_10j2s"]
+[ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="5_dmdur"]
+
+[node name="level" instance=ExtResource("1_hos7h")]
+level = 1
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_8ivtr")]
+position = Vector2(320, 240)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_lerdr")]
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_10j2s")]
+position = Vector2(-43, 0)
+type = null
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_lerdr")]
+layer = 2
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_10j2s")]
+position = Vector2(-84, 0)
+type = null
+
+[node name="wheel3" parent="sources/source" index="3" instance=ExtResource("3_lerdr")]
+layer = 3
+
+[node name="projectile" parent="sources/source/wheel3" index="1" instance=ExtResource("4_10j2s")]
+position = Vector2(-129, 0)
+
+[node name="demon" parent="demons" index="0" instance=ExtResource("5_dmdur")]
+position = Vector2(320, 50)
+
+[node name="demon2" parent="demons" index="1" instance=ExtResource("5_dmdur")]
+position = Vector2(190, 80)
+
+[node name="demon3" parent="demons" index="2" instance=ExtResource("5_dmdur")]
+position = Vector2(450, 80)

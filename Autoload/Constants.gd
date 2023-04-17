@@ -1,3 +1,4 @@
 extends Node
 
 enum COLORS {BLUE, WHITE, PINK}
+enum PROJECTILE_TYPES {NORMAL, SPLITTING}

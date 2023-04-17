@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://crwyhvr06i7o0"]
+[gd_scene load_steps=7 format=3 uid="uid://crwyhvr06i7o0"]
 
 [ext_resource type="Script" path="res://Scenes/System/Gameplay/projectile.gd" id="1_u6iqr"]
 [ext_resource type="Texture2D" uid="uid://bh5viqio6dxpo" path="res://Assets/Sprites/Gameplay/projectile.png" id="1_xnkhr"]
+[ext_resource type="PackedScene" uid="uid://ycopo8eqtmnb" path="res://Scenes/System/Gameplay/split_projectile.tscn" id="3_xu8l3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjvcr"]
 radius = 5.09902
@@ -28,3 +29,16 @@ texture = ExtResource("1_xnkhr")
 libraries = {
 "": SubResource("AnimationLibrary_31g5d")
 }
+
+[node name="splitter_nodes" type="Node2D" parent="."]
+visible = false
+
+[node name="split0" parent="splitter_nodes" instance=ExtResource("3_xu8l3")]
+
+[node name="split1" parent="splitter_nodes" instance=ExtResource("3_xu8l3")]
+
+[node name="Timer" type="Timer" parent="splitter_nodes"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="splitter_nodes/Timer" to="." method="_on_timer_timeout"]

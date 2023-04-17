@@ -4,11 +4,10 @@ extends Node2D
 
 const LERP_SPEED = 5
 const WIDTH = 40
-const BASE_RADIUS = 40
+const BASE_RADIUS = 30
 
 @export var layer = 1 # determines order of wheel, like atoms with electrons
-@export var angles_proj = [] # the angles at which the projectiles sit on the wheel
-@export var colors_proj = [] # the color of each projectile
+@export var init_rotation = 0 # base rotation of wheel when level spawns (degrees)
 
 var initial_angle = null
 var target_angle = 0
@@ -18,6 +17,8 @@ var rotating = false : set = _set_rotating
 
 # arrange projectiles
 func _ready():
+	target_angle = deg_to_rad(init_rotation)
+	rotation = deg_to_rad(init_rotation)
 	var projectiles = get_projectiles()
 	for proj in projectiles:
 		proj.position = (layer * BASE_RADIUS) * proj.position.normalized()
@@ -25,7 +26,9 @@ func _ready():
 
 func get_projectiles():
 	var projectiles = get_children()
-	projectiles.pop_back()
+	for p in projectiles:
+		if p.name == "visuals":
+			projectiles.erase(p)
 	return projectiles
 	
 func reset():

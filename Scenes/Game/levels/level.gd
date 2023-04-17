@@ -58,4 +58,5 @@ func fail():
 	
 # progress to next level. emit level cleared signal
 func clear():
-	print('clear')
+	SignalBus.emit_signal('level_cleared', situation, level)
+	queue_free()

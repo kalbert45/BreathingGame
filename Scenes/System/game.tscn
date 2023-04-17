@@ -7,10 +7,10 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_t2l3t")
 
-[node name="person" type="Sprite2D" parent="."]
+[node name="MovingBackground" type="Node2D" parent="."]
+
+[node name="person" type="Sprite2D" parent="MovingBackground"]
 position = Vector2(326, 166)
 texture = ExtResource("1_58e83")
-
-[node name="MovingBackground" type="Node2D" parent="."]
 
 [node name="level" parent="." instance=ExtResource("3_cx24x")]

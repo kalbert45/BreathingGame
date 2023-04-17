@@ -1,7 +1,202 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhs65d5dchmd3"]
+[gd_scene load_steps=15 format=3 uid="uid://bi16eyjm3fv85"]
 
 [ext_resource type="Script" path="res://Scenes/System/Gameplay/source.gd" id="1_dr10j"]
 [ext_resource type="Texture2D" uid="uid://bq6efipvbse3y" path="res://Assets/Sprites/Gameplay/core.png" id="1_uhsvh"]
+[ext_resource type="Shader" path="res://Assets/Shaders/air.gdshader" id="3_h5jmk"]
+[ext_resource type="Texture2D" uid="uid://csyw0j8eoar26" path="res://Assets/Sprites/Gameplay/smooth_noise.png" id="4_mcig0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gt0wn"]
+render_priority = 0
+shader = ExtResource("3_h5jmk")
+shader_parameter/albedo = Color(0.505882, 0.592157, 0.588235, 1)
+shader_parameter/erosion = 0.0
+shader_parameter/erosion_width = 0.0
+shader_parameter/noise_texture = ExtResource("4_mcig0")
+
+[sub_resource type="SphereMesh" id="SphereMesh_3uklr"]
+material = SubResource("ShaderMaterial_gt0wn")
+
+[sub_resource type="Animation" id="Animation_ljaxq"]
+resource_name = "inhale"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.771302, 0.145, -0.3, 0.0300798, 0.3, 0.00191936, 0.107, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.831561, 0.145, -0.3, 0.00191936, 0.25, 0, 0.107, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.791389, 0.145, -0.3, 0.00895947, 0.25, 0, 0.107, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.2, -0.16858, 0.4, -0.2, 0.0509024, 0.3, -0.0495289, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+
+[sub_resource type="Animation" id="Animation_m7mpq"]
+resource_name = "hold"
+
+[sub_resource type="Animation" id="Animation_scq2b"]
+resource_name = "exhale"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector3(2.478, 2.478, 2.478)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [0.853]
+}
+
+[sub_resource type="Animation" id="Animation_p2tot"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.478, 2.478, 2.478)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dqia"]
+_data = {
+"RESET": SubResource("Animation_p2tot"),
+"exhale": SubResource("Animation_scq2b"),
+"hold": SubResource("Animation_m7mpq"),
+"inhale": SubResource("Animation_ljaxq")
+}
+
+[sub_resource type="Animation" id="Animation_vnpr4"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.36, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 0.36, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4)
+}
+
+[sub_resource type="Animation" id="Animation_3lb7i"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4ee8"]
+_data = {
+"RESET": SubResource("Animation_3lb7i"),
+"idle": SubResource("Animation_vnpr4")
+}
 
 [node name="source" type="Sprite2D"]
 texture_filter = 1
@@ -9,3 +204,41 @@ texture = ExtResource("1_uhsvh")
 script = ExtResource("1_dr10j")
 
 [node name="visuals" type="Node2D" parent="."]
+visible = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="visuals"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="visuals/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(640, 640)
+render_target_update_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="visuals/SubViewportContainer/SubViewport"]
+transform = Transform3D(2.366, 0, 0, 0, 2.366, 0, 0, 0, 2.366, 0, 0, 0)
+mesh = SubResource("SphereMesh_3uklr")
+
+[node name="Camera3D" type="Camera3D" parent="visuals/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.88718)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="visuals"]
+libraries = {
+"": SubResource("AnimationLibrary_8dqia")
+}
+
+[node name="IdlePlayer" type="AnimationPlayer" parent="visuals"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_k4ee8")
+}

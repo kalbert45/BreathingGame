@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ycopo8eqtmnb"]
+
+[ext_resource type="Script" path="res://Scenes/System/Gameplay/split_projectile.gd" id="1_jnge6"]
+[ext_resource type="Texture2D" uid="uid://0qpojh7o4hkd" path="res://Assets/Sprites/Gameplay/projectile_split_pink.png" id="1_pv5yb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nhinx"]
+radius = 4.0
+
+[node name="split_projectile" type="Area2D"]
+script = ExtResource("1_jnge6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nhinx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_pv5yb")

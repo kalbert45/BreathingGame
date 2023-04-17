@@ -7,6 +7,9 @@ var projectiles = []
 var wheels
 
 func _ready():
+	self_modulate.a = 0
+	$visuals.visible = true
+	
 	wheels = get_wheels()
 	for w in wheels:
 		for p in w.get_projectiles():
@@ -14,15 +17,21 @@ func _ready():
 
 func get_wheels():
 	var wheels = get_children()
-	wheels.pop_back()
+	for w in wheels:
+		if w.name == "visuals":
+			wheels.erase(w)
 	return wheels
 		
 # also handles inhale animation
 func activate_wheels():
+	$visuals/AnimationPlayer.play("inhale")
+	
 	for w in wheels:
 		w.active = true
 	
 func exhale_projectiles(strength):
+	$visuals/AnimationPlayer.play("exhale")
+	
 	for w in wheels:
 		w.active = false
 		

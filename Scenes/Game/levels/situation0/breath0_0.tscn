@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://chtb72h4iwn13"]
 
 [ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_42sn2"]
-[ext_resource type="PackedScene" uid="uid://dhs65d5dchmd3" path="res://Scenes/System/Gameplay/source.tscn" id="2_dd4nl"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_dd4nl"]
 [ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_ggohe"]
 [ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_hig0c"]
 [ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="5_ywleu"]
@@ -14,23 +14,15 @@ position = Vector2(320, 180)
 [node name="wheel" parent="sources/source" index="0" instance=ExtResource("3_ggohe")]
 
 [node name="projectile" parent="sources/source/wheel" index="0" instance=ExtResource("4_hig0c")]
-position = Vector2(32, -68)
+position = Vector2(0, -58)
+type = null
 
-[node name="wheel2" parent="sources/source" index="1" instance=ExtResource("3_ggohe")]
-layer = 2
-
-[node name="projectile" parent="sources/source/wheel2" index="0" instance=ExtResource("4_hig0c")]
-position = Vector2(-58, 42)
-
-[node name="projectile2" parent="sources/source/wheel2" index="1" instance=ExtResource("4_hig0c")]
-position = Vector2(24, 59)
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_hig0c")]
+position = Vector2(0, 63)
+type = null
 
 [node name="demon" parent="demons" index="0" instance=ExtResource("5_ywleu")]
-position = Vector2(206, 260)
+position = Vector2(120, 180)
 
-[node name="demon2" parent="demons" index="1" instance=ExtResource("5_ywleu")]
-position = Vector2(386, 48)
-color = 1
-
-[node name="demon3" parent="demons" index="2" instance=ExtResource("5_ywleu")]
-position = Vector2(366, 307)
+[node name="demon3" parent="demons" index="1" instance=ExtResource("5_ywleu")]
+position = Vector2(520, 180)
