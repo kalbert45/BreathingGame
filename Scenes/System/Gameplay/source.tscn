@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhs65d5dchmd3"]
+
+[ext_resource type="Script" path="res://Scenes/System/Gameplay/source.gd" id="1_dr10j"]
+[ext_resource type="Texture2D" uid="uid://bq6efipvbse3y" path="res://Assets/Sprites/Gameplay/core.png" id="1_uhsvh"]
+
+[node name="source" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_uhsvh")
+script = ExtResource("1_dr10j")
+
+[node name="visuals" type="Node2D" parent="."]

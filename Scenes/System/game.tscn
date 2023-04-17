@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3fu6gdgjqekw"]
+
+[ext_resource type="Texture2D" uid="uid://sw7qhwhdwuo0" path="res://Assets/Sprites/Gameplay/person.png" id="1_58e83"]
+[ext_resource type="Script" path="res://Scenes/System/game.gd" id="1_t2l3t"]
+[ext_resource type="PackedScene" uid="uid://chtb72h4iwn13" path="res://Scenes/Game/levels/situation0/breath0_0.tscn" id="3_cx24x"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_t2l3t")
+
+[node name="person" type="Sprite2D" parent="."]
+position = Vector2(326, 166)
+texture = ExtResource("1_58e83")
+
+[node name="MovingBackground" type="Node2D" parent="."]
+
+[node name="level" parent="." instance=ExtResource("3_cx24x")]
