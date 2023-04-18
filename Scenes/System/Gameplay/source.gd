@@ -28,6 +28,9 @@ func activate_wheels():
 	
 	for w in wheels:
 		w.active = true
+		
+	for p in projectiles:
+		p.spawn()
 	
 func exhale_projectiles(strength):
 	$visuals/AnimationPlayer.play("exhale")

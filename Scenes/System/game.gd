@@ -6,18 +6,28 @@ extends Node2D
 const MAX_STRENGTH = 250 # maximum strength of exhale
 const BREATH_LIMIT = 5 # maximum time limit in seconds
 
-var active = true # determines if input is active
+@onready var _anim_player = $MovingBackground/AnimationPlayer
+
+@export var active = false # determines if input is active
 var prepared = true # variable to disallow spamming
+var tutorial = true # one time use variable
 var strength = 0 # strength of exhale. Depends on length held
 var level
 
 var inhaling = false : set = _set_inhaling
 
+func intro():
+	$level/IntroPlayer.play("intro")
+
 func _ready():
 	level = $level
 	set_physics_process(false)
+	SignalBus.game_start.connect(_on_Game_Start)
 	SignalBus.breath_finished.connect(_on_Breath_Finished)
 	SignalBus.level_cleared.connect(_on_Level_Cleared)
+
+func _on_Game_Start():
+	$MovingBackground/AnimationPlayer.play("intro")
 
 func _on_Breath_Finished():
 	prepared = true
@@ -50,11 +60,22 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("breathe"):
 		if prepared:
+			if tutorial:
+				tutorial = false
+				$MovingBackground/TutorialPlayer.play("space_fadeout")
+			
+			_anim_player.play("inhale")
+			$BreathingSFX/InhaleSFX.volume_db = 0
+			$BreathingSFX/InhaleSFX.play()
 			level.inhale()
 			prepared = false
 			self.inhaling = true
 	elif event.is_action_released("breathe"):
 		if inhaling:
+			_anim_player.play("exhale")
+			var tween = get_tree().create_tween()
+			tween.tween_property($BreathingSFX/InhaleSFX, "volume_db", -80, 1)
+			$BreathingSFX/ExhaleSFX.play()
 			level.exhale(strength)
 			self.inhaling = false
 

@@ -3,7 +3,7 @@ extends Node2D
 # wheel needs to handle mouse input
 
 const LERP_SPEED = 5
-const WIDTH = 40
+const WIDTH = 30
 const BASE_RADIUS = 30
 
 @export var layer = 1 # determines order of wheel, like atoms with electrons
@@ -22,6 +22,7 @@ func _ready():
 	var projectiles = get_projectiles()
 	for proj in projectiles:
 		proj.position = (layer * BASE_RADIUS) * proj.position.normalized()
+		proj.rotation = proj.position.angle()
 		proj.init_position = proj.position
 
 func get_projectiles():

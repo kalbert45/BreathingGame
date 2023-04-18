@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ycopo8eqtmnb"]
+[gd_scene load_steps=5 format=3 uid="uid://ycopo8eqtmnb"]
 
 [ext_resource type="Script" path="res://Scenes/System/Gameplay/split_projectile.gd" id="1_jnge6"]
 [ext_resource type="Texture2D" uid="uid://0qpojh7o4hkd" path="res://Assets/Sprites/Gameplay/projectile_split_pink.png" id="1_pv5yb"]
@@ -6,12 +6,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhinx"]
 radius = 4.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ih3av"]
+particle_flag_disable_z = true
+flatness = 0.25
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 21.05
+initial_velocity_max = 52.63
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
 [node name="split_projectile" type="Area2D"]
 script = ExtResource("1_jnge6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nhinx")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_pv5yb")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_ih3av")
+one_shot = true
+explosiveness = 0.77
+fixed_fps = 12

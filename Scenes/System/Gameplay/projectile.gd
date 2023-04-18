@@ -12,6 +12,9 @@ var splitter_speed = 0
 func _ready():
 	set_physics_process(false)
 
+func spawn():
+	$AnimationPlayer.play("spawn")
+
 func _set_type(value):
 	type = value
 	
@@ -22,6 +25,10 @@ func _set_type(value):
 			$Sprite2D.texture = load("res://Assets/Sprites/Gameplay/projectile_pink.png")
 
 func reset():
+	$GPUParticles2D.visible = false
+	$splitter_nodes/split0/GPUParticles2D.visible = false
+	$splitter_nodes/split1/GPUParticles2D.visible = false
+	
 	speed = 0
 	splitter_speed = 0
 	position = init_position
@@ -39,6 +46,11 @@ func reset():
 # called externally
 func disable():
 	pass
+	
+func on_hit():
+	$GPUParticles2D.visible = true
+	$GPUParticles2D.emitting = true
+	$GPUParticles2D.restart()
 
 func push(strength, _direction):
 	set_physics_process(true)

@@ -1,4 +1,5 @@
 extends Node
 
+signal game_start
 signal level_cleared(situation, level)
 signal breath_finished

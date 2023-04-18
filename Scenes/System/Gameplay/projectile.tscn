@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crwyhvr06i7o0"]
+[gd_scene load_steps=10 format=3 uid="uid://crwyhvr06i7o0"]
 
 [ext_resource type="Script" path="res://Scenes/System/Gameplay/projectile.gd" id="1_u6iqr"]
 [ext_resource type="Texture2D" uid="uid://bh5viqio6dxpo" path="res://Assets/Sprites/Gameplay/projectile.png" id="1_xnkhr"]
@@ -10,10 +10,72 @@ radius = 5.09902
 [sub_resource type="Animation" id="Animation_qdpgi"]
 resource_name = "fade"
 
+[sub_resource type="Animation" id="Animation_70jf3"]
+resource_name = "spawn"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(20, -0.25, 0, 0.2, -16, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_xtxda"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_31g5d"]
 _data = {
-"fade": SubResource("Animation_qdpgi")
+"RESET": SubResource("Animation_xtxda"),
+"fade": SubResource("Animation_qdpgi"),
+"spawn": SubResource("Animation_70jf3")
 }
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j0wru"]
+particle_flag_disable_z = true
+flatness = 0.25
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 21.05
+initial_velocity_max = 52.63
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 
 [node name="projectile" type="Area2D"]
 script = ExtResource("1_u6iqr")
@@ -23,12 +85,22 @@ shape = SubResource("CircleShape2D_cjvcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(20, 0)
 texture = ExtResource("1_xnkhr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_31g5d")
 }
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_j0wru")
+one_shot = true
+explosiveness = 0.77
+fixed_fps = 12
 
 [node name="splitter_nodes" type="Node2D" parent="."]
 visible = false

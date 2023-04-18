@@ -8,10 +8,12 @@ extends Node2D
 var hit = false : set = _set_hit # boolean for if demon was hit
 
 func _ready():
+	set_idle()
 	self.color = color
 
 func _set_hit(value):
 	if value:
+		$IdlePlayer.stop()
 		$AnimationPlayer.play("hit")
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	else:
@@ -24,15 +26,21 @@ func _set_color(value):
 	color = value
 	match color:
 		Constants.COLORS.BLUE:
-			$Sprite2D.texture = load("res://Assets/Sprites/Gameplay/demon.png")
+			$Sprite2D.texture = load("res://Assets/Sprites/Gameplay/demon_red.png")
 		Constants.COLORS.WHITE:
 			$Sprite2D.texture = load("res://Assets/Sprites/Gameplay/demon_white.png")
 
 func activate():
 	$Area2D/CollisionShape2D.set_deferred("disabled", false)
 
+func set_idle():
+	$IdlePlayer.play("idle")
+	$IdlePlayer.seek(randf_range(0, 1.99), true)
+
 func reset():
+	set_idle()
 	self.hit = false
 
 func _on_area_2d_area_entered(area):
 	self.hit = true
+	area.on_hit()

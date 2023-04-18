@@ -16,85 +16,6 @@ shader_parameter/noise_texture = ExtResource("4_mcig0")
 [sub_resource type="SphereMesh" id="SphereMesh_3uklr"]
 material = SubResource("ShaderMaterial_gt0wn")
 
-[sub_resource type="Animation" id="Animation_ljaxq"]
-resource_name = "inhale"
-length = 5.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.771302, 0.145, -0.3, 0.0300798, 0.3, 0.00191936, 0.107, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 5)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.831561, 0.145, -0.3, 0.00191936, 0.25, 0, 0.107, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 5)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.791389, 0.145, -0.3, 0.00895947, 0.25, 0, 0.107, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 5)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.2, -0.16858, 0.4, -0.2, 0.0509024, 0.3, -0.0495289, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 5)
-}
-
-[sub_resource type="Animation" id="Animation_m7mpq"]
-resource_name = "hold"
-
-[sub_resource type="Animation" id="Animation_scq2b"]
-resource_name = "exhale"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
-"update": 2,
-"values": [Vector3(2.478, 2.478, 2.478)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
-"update": 2,
-"values": [0.853]
-}
-
 [sub_resource type="Animation" id="Animation_p2tot"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -154,12 +75,105 @@ tracks/4/keys = {
 "values": [Vector3(2.478, 2.478, 2.478)]
 }
 
+[sub_resource type="Animation" id="Animation_scq2b"]
+resource_name = "exhale"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector3(2.478, 2.478, 2.478)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [0.853]
+}
+
+[sub_resource type="Animation" id="Animation_m7mpq"]
+resource_name = "hold"
+
+[sub_resource type="Animation" id="Animation_ljaxq"]
+resource_name = "inhale"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.771302, 0.145, -0.3, 0.0300798, 0.3, 0.00191936, 0.107, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.831561, 0.145, -0.3, 0.00191936, 0.25, 0, 0.107, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.366, -0.25, 0, 0.1, -0.791389, 0.145, -0.3, 0.00895947, 0.25, 0, 0.107, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.2, -0.16858, 0.4, -0.2, 0.0509024, 0.3, -0.0495289, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 5)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8dqia"]
 _data = {
 "RESET": SubResource("Animation_p2tot"),
 "exhale": SubResource("Animation_scq2b"),
 "hold": SubResource("Animation_m7mpq"),
 "inhale": SubResource("Animation_ljaxq")
+}
+
+[sub_resource type="Animation" id="Animation_3lb7i"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_vnpr4"]
@@ -176,20 +190,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0.36, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 0.36, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 2, 4)
-}
-
-[sub_resource type="Animation" id="Animation_3lb7i"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/MeshInstance3D:mesh:material:shader_parameter/erosion_width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4ee8"]

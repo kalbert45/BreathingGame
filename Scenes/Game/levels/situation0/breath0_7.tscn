@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cay57dcwh3ei4"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_01k5f"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_2k5tp"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_6l3js"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_u7t3b"]
+[ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="5_5jhdq"]
+
+[node name="level" instance=ExtResource("1_01k5f")]
+level = 7
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_2k5tp")]
+position = Vector2(320, 180)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_6l3js")]
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_u7t3b")]
+position = Vector2(-34, 0)
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_u7t3b")]
+position = Vector2(0, -41)
+type = 1
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_6l3js")]
+layer = 2
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_u7t3b")]
+position = Vector2(-39, 0)
+
+[node name="projectile2" parent="sources/source/wheel2" index="2" instance=ExtResource("4_u7t3b")]
+position = Vector2(0, -52)
+type = 1
+
+[node name="wheel3" parent="sources/source" index="3" instance=ExtResource("3_6l3js")]
+layer = 3
+
+[node name="projectile" parent="sources/source/wheel3" index="1" instance=ExtResource("4_u7t3b")]
+position = Vector2(-58, 0)
+
+[node name="projectile2" parent="sources/source/wheel3" index="2" instance=ExtResource("4_u7t3b")]
+position = Vector2(0, -71)
+type = 1
+
+[node name="demon" parent="demons" index="0" instance=ExtResource("5_5jhdq")]
+position = Vector2(150, 180)
+
+[node name="demon2" parent="demons" index="1" instance=ExtResource("5_5jhdq")]
+position = Vector2(260, 30)
+
+[node name="demon3" parent="demons" index="2" instance=ExtResource("5_5jhdq")]
+position = Vector2(380, 30)
+
+[node name="demon4" parent="demons" index="3" instance=ExtResource("5_5jhdq")]
+position = Vector2(320, 30)
+
+[node name="demon5" parent="demons" index="4" instance=ExtResource("5_5jhdq")]
+position = Vector2(500, 120)
+
+[node name="demon6" parent="demons" index="5" instance=ExtResource("5_5jhdq")]
+position = Vector2(500, 240)
+
+[node name="demon7" parent="demons" index="6" instance=ExtResource("5_5jhdq")]
+position = Vector2(500, 180)
+
+[node name="demon8" parent="demons" index="7" instance=ExtResource("5_5jhdq")]
+position = Vector2(260, 300)
+
+[node name="demon9" parent="demons" index="8" instance=ExtResource("5_5jhdq")]
+position = Vector2(380, 300)
