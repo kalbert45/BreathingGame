@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7kegxouquovo"]
+[gd_scene load_steps=11 format=3 uid="uid://c7kegxouquovo"]
 
 [ext_resource type="Script" path="res://Scenes/System/title_screen.gd" id="1_co3ng"]
+[ext_resource type="Texture2D" uid="uid://b07yxwlenv2hm" path="res://Assets/Sprites/Gameplay/Title.png" id="2_mq5og"]
 [ext_resource type="FontFile" uid="uid://dcon8ikef8s3h" path="res://Assets/Fonts/m5x7.ttf" id="2_t578q"]
 [ext_resource type="AudioStream" uid="uid://xfkr0dwrwsmx" path="res://Assets/Sounds/SFX/play_button.wav" id="3_ti6lx"]
 
@@ -92,17 +93,20 @@ script = ExtResource("1_co3ng")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 560.0
+offset_bottom = 153.0
 mouse_filter = 2
+texture = ExtResource("2_mq5og")
 
 [node name="Button" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
 offset_left = 296.0
-offset_top = 240.0
+offset_top = 248.0
 offset_right = 344.0
-offset_bottom = 264.0
+offset_bottom = 272.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
 theme_override_fonts/font = ExtResource("2_t578q")
