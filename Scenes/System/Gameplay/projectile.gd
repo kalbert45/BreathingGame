@@ -68,6 +68,9 @@ func _physics_process(delta):
 		$splitter_nodes/split0.position += Vector2(0,1) * splitter_speed * delta
 		$splitter_nodes/split1.position -= Vector2(0,1) * splitter_speed * delta
 		splitter_speed = lerpf(splitter_speed, 0, DEACCEL*delta)
+		
+		$splitter_nodes/split0.speed = splitter_speed
+		$splitter_nodes/split1.speed = splitter_speed
 
 # split the projectile
 func _on_timer_timeout():

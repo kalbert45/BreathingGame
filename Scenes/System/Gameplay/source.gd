@@ -16,11 +16,11 @@ func _ready():
 			projectiles.append(p)
 
 func get_wheels():
-	var wheels = get_children()
-	for w in wheels:
+	var _wheels = get_children()
+	for w in _wheels:
 		if w.name == "visuals":
-			wheels.erase(w)
-	return wheels
+			_wheels.erase(w)
+	return _wheels
 		
 # also handles inhale animation
 func activate_wheels():

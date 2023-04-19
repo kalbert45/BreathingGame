@@ -1,7 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7kegxouquovo"]
+[gd_scene load_steps=10 format=3 uid="uid://c7kegxouquovo"]
 
 [ext_resource type="Script" path="res://Scenes/System/title_screen.gd" id="1_co3ng"]
 [ext_resource type="FontFile" uid="uid://dcon8ikef8s3h" path="res://Assets/Fonts/m5x7.ttf" id="2_t578q"]
+[ext_resource type="AudioStream" uid="uid://xfkr0dwrwsmx" path="res://Assets/Sounds/SFX/play_button.wav" id="3_ti6lx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84gqp"]
+bg_color = Color(0.0823529, 0.113725, 0.156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0784314, 0.121569, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osamc"]
+bg_color = Color(0.12549, 0.180392, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0784314, 0.121569, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwu3q"]
+bg_color = Color(0.12549, 0.180392, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0784314, 0.121569, 1)
+anti_aliasing = false
 
 [sub_resource type="Animation" id="Animation_j4cfy"]
 resource_name = "fade"
@@ -74,14 +102,23 @@ layout_mode = 0
 offset_left = 296.0
 offset_top = 240.0
 offset_right = 344.0
-offset_bottom = 271.0
+offset_bottom = 264.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
 theme_override_fonts/font = ExtResource("2_t578q")
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
 text = "PLAY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_8lnup")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ti6lx")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

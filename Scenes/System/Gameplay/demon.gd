@@ -13,6 +13,7 @@ func _ready():
 
 func _set_hit(value):
 	if value:
+		#$AudioStreamPlayer.play()
 		$IdlePlayer.stop()
 		$AnimationPlayer.play("hit")
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
@@ -42,5 +43,9 @@ func reset():
 	self.hit = false
 
 func _on_area_2d_area_entered(area):
+	var note = Global.pick_note()
+	var db = (area.speed / 250) * 28 - 24
+	Global.play_sfx('res://Assets/Sounds/SFX/demon_hit'+note+'3.wav', db)
+	
 	self.hit = true
 	area.on_hit()

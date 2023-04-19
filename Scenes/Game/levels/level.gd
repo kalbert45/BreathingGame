@@ -58,5 +58,7 @@ func fail():
 	
 # progress to next level. emit level cleared signal
 func clear():
+	var order = level % 4
+	Global.play_sfx('res://Assets/Sounds/SFX/arp'+str(order)+'.wav', 0)
 	SignalBus.emit_signal('level_cleared', situation, level)
 	queue_free()

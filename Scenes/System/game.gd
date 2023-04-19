@@ -43,6 +43,9 @@ func _on_Level_Cleared(s, l):
 		var new_level = load("res://Scenes/Game/levels/situation"+str(s)+"/breath"+str(s)+"_"+str(new_l)+".tscn")
 		level = new_level.instantiate()
 		add_child(level)
+	else:
+		active = false
+		$MovingBackground/AnimationPlayer.play("outro")
 		
 	prepared = true
 
