@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://w1s1xalkxwm5"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_5rlst"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_trryd"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_1ewoc"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_ajlrq"]
+[ext_resource type="PackedScene" uid="uid://cub3amcofrb7m" path="res://Scenes/System/Gameplay/demon_red.tscn" id="5_eoeqj"]
+[ext_resource type="PackedScene" uid="uid://boriuc1u21gvs" path="res://Scenes/System/Gameplay/demon.tscn" id="6_jqc5i"]
+
+[node name="level" instance=ExtResource("1_5rlst")]
+situation = 1
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_trryd")]
+position = Vector2(160, 180)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_1ewoc")]
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_ajlrq")]
+position = Vector2(-38, 0)
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_ajlrq")]
+position = Vector2(35, 0)
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_1ewoc")]
+layer = 2
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_ajlrq")]
+position = Vector2(-59, 0)
+
+[node name="projectile2" parent="sources/source/wheel2" index="2" instance=ExtResource("4_ajlrq")]
+position = Vector2(64, 0)
+
+[node name="source2" parent="sources" index="1" instance=ExtResource("2_trryd")]
+position = Vector2(480, 180)
+
+[node name="wheel" parent="sources/source2" index="1" instance=ExtResource("3_1ewoc")]
+
+[node name="projectile" parent="sources/source2/wheel" index="1" instance=ExtResource("4_ajlrq")]
+position = Vector2(-32, 0)
+
+[node name="projectile2" parent="sources/source2/wheel" index="2" instance=ExtResource("4_ajlrq")]
+position = Vector2(30, 0)
+
+[node name="wheel2" parent="sources/source2" index="2" instance=ExtResource("3_1ewoc")]
+layer = 2
+
+[node name="projectile" parent="sources/source2/wheel2" index="1" instance=ExtResource("4_ajlrq")]
+position = Vector2(-49, 0)
+
+[node name="projectile2" parent="sources/source2/wheel2" index="2" instance=ExtResource("4_ajlrq")]
+position = Vector2(49, 0)
+
+[node name="demon_red" parent="demons" index="0" instance=ExtResource("5_eoeqj")]
+position = Vector2(320, 60)
+
+[node name="demon_red2" parent="demons" index="1" instance=ExtResource("5_eoeqj")]
+position = Vector2(320, 300)
+
+[node name="demon" parent="demons" index="2" instance=ExtResource("6_jqc5i")]
+position = Vector2(60, 100)
+
+[node name="demon2" parent="demons" index="3" instance=ExtResource("6_jqc5i")]
+position = Vector2(60, 260)
+
+[node name="demon3" parent="demons" index="4" instance=ExtResource("6_jqc5i")]
+position = Vector2(580, 260)
+
+[node name="demon4" parent="demons" index="5" instance=ExtResource("6_jqc5i")]
+position = Vector2(580, 100)

@@ -12,6 +12,7 @@ const BREATH_LIMIT = 5 # maximum time limit in seconds
 var prepared = true # variable to disallow spamming
 var tutorial = true # one time use variable
 var strength = 0 # strength of exhale. Depends on length held
+var situation = 0
 var level
 
 var inhaling = false : set = _set_inhaling
@@ -23,6 +24,7 @@ func _ready():
 	level = $level
 	set_physics_process(false)
 	SignalBus.game_start.connect(_on_Game_Start)
+	SignalBus.level_start.connect(_on_Level_Start)
 	SignalBus.breath_finished.connect(_on_Breath_Finished)
 	SignalBus.level_cleared.connect(_on_Level_Cleared)
 
@@ -30,6 +32,23 @@ func _on_Game_Start():
 	$MovingBackground/AnimationPlayer.play("intro")
 
 func _on_Breath_Finished():
+	prepared = true
+	
+# used for level select screen
+func _on_Level_Start(s, l):
+	if is_instance_valid(level):
+		level.queue_free()
+		
+	$MovingBackground/SleepPlayer.stop()
+		
+	await get_tree().create_timer(1.0).timeout
+		
+	$MovingBackground/AnimationPlayer.play("wake")
+	var new_level = load("res://Scenes/Game/levels/situation"+str(s)+"/breath"+str(s)+"_"+str(l)+".tscn")
+	level = new_level.instantiate()
+	add_child(level)
+	active = true
+	tutorial = false
 	prepared = true
 
 func _on_Level_Cleared(s, l):
@@ -43,11 +62,23 @@ func _on_Level_Cleared(s, l):
 		var new_level = load("res://Scenes/Game/levels/situation"+str(s)+"/breath"+str(s)+"_"+str(new_l)+".tscn")
 		level = new_level.instantiate()
 		add_child(level)
+		prepared = true
 	else:
 		active = false
 		$MovingBackground/AnimationPlayer.play("outro")
+		await get_tree().create_timer(1.0).timeout
+		set_clear_button(s, l)
 		
-	prepared = true
+func set_clear_button(s, l):
+	situation = s
+	if s < 3:
+		$ClearButton.text = "Next"
+		$ClearButton.position = Vector2(296, 248)
+		$ClearButton/AnimationPlayer.play("spawn")
+	else:
+		$ClearButton.text = "Thanks for playing!"
+		$ClearButton.position = Vector2(296, 248)
+		$ClearButton/AnimationPlayer.play("spawn")
 
 func _set_inhaling(value):
 	inhaling = value
@@ -85,3 +116,15 @@ func _unhandled_input(event):
 # about 5 seconds to max
 func _physics_process(delta):
 	strength = lerpf(strength, MAX_STRENGTH, delta)
+
+
+func _on_clear_button_pressed():
+	Global.play_sfx('res://Assets/Sounds/SFX/demon_hitC.wav', 0)
+	if situation < 3:
+		$ClearButton/AnimationPlayer.play("despawn")
+		await get_tree().create_timer(1.0).timeout
+		SignalBus.emit_signal('level_start', situation+1, 0)
+	else:
+		$ClearButton/AnimationPlayer.play("despawn")
+		await get_tree().create_timer(1.0).timeout
+		add_child(load("res://Scenes/System/title_screen.tscn").instantiate())
