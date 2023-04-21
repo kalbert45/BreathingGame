@@ -136,6 +136,7 @@ text = "Start"
 
 [node name="Button2" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 296.0
 offset_top = 284.0
 offset_right = 343.0
@@ -169,10 +170,11 @@ offset_bottom = 288.0
 
 [node name="Back" type="Button" parent="Levels"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 112.0
-offset_top = 65.0
+offset_top = 43.0
 offset_right = 158.0
-offset_bottom = 89.0
+offset_bottom = 67.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
 theme_override_fonts/font = ExtResource("2_t578q")
@@ -435,133 +437,6 @@ script = ExtResource("5_6xw37")
 situation = 1
 level = 7
 
-[node name="1_8" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-0 "
-script = ExtResource("5_6xw37")
-situation = 1
-
-[node name="1_9" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-1 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 1
-
-[node name="1_10" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-2 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 2
-
-[node name="1_11" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-3 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 3
-
-[node name="1_12" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-4 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 4
-
-[node name="1_13" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-5 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 5
-
-[node name="1_14" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-6 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 6
-
-[node name="1_15" type="Button" parent="Levels/GridContainer"]
-texture_filter = 1
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.780392, 0.811765, 0.8, 1)
-theme_override_fonts/font = ExtResource("2_t578q")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_84gqp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_osamc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lwu3q")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_84gqp")
-text = " 1-7 "
-script = ExtResource("5_6xw37")
-situation = 1
-level = 7
-
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Levels/Back" to="." method="_on_back_pressed"]
@@ -581,11 +456,3 @@ level = 7
 [connection signal="pressed" from="Levels/GridContainer/1_5" to="Levels/GridContainer/1_5" method="_on_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/1_6" to="Levels/GridContainer/1_6" method="_on_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/1_7" to="Levels/GridContainer/1_7" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_8" to="Levels/GridContainer/1_8" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_9" to="Levels/GridContainer/1_9" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_10" to="Levels/GridContainer/1_10" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_11" to="Levels/GridContainer/1_11" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_12" to="Levels/GridContainer/1_12" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_13" to="Levels/GridContainer/1_13" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_14" to="Levels/GridContainer/1_14" method="_on_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/1_15" to="Levels/GridContainer/1_15" method="_on_pressed"]

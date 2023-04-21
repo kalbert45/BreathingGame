@@ -18,7 +18,7 @@ var level
 var inhaling = false : set = _set_inhaling
 
 func intro():
-	$level/IntroPlayer.play("intro")
+	level.get_node("IntroPlayer").play('intro')
 
 func _ready():
 	level = $level
@@ -70,14 +70,14 @@ func _on_Level_Cleared(s, l):
 		set_clear_button(s, l)
 		
 func set_clear_button(s, l):
-	situation = s
-	if s < 3:
+	situation = s + 1
+	if situation < 2:
 		$ClearButton.text = "Next"
 		$ClearButton.position = Vector2(296, 248)
 		$ClearButton/AnimationPlayer.play("spawn")
 	else:
 		$ClearButton.text = "Thanks for playing!"
-		$ClearButton.position = Vector2(296, 248)
+		$ClearButton.position = Vector2(268, 248)
 		$ClearButton/AnimationPlayer.play("spawn")
 
 func _set_inhaling(value):
@@ -120,7 +120,7 @@ func _physics_process(delta):
 
 func _on_clear_button_pressed():
 	Global.play_sfx('res://Assets/Sounds/SFX/demon_hitC.wav', 0)
-	if situation < 3:
+	if situation < 2:
 		$ClearButton/AnimationPlayer.play("despawn")
 		await get_tree().create_timer(1.0).timeout
 		SignalBus.emit_signal('level_start', situation+1, 0)
@@ -128,3 +128,6 @@ func _on_clear_button_pressed():
 		$ClearButton/AnimationPlayer.play("despawn")
 		await get_tree().create_timer(1.0).timeout
 		add_child(load("res://Scenes/System/title_screen.tscn").instantiate())
+		level = load("res://Scenes/Game/levels/situation0/breath0_0.tscn").instantiate()
+		level.modulate.a = 0
+		

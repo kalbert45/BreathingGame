@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://cn4nkbe4wpst7"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_1rx7o"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_md81k"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_b7awo"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_6dlkk"]
+[ext_resource type="PackedScene" uid="uid://cub3amcofrb7m" path="res://Scenes/System/Gameplay/demon_red.tscn" id="4_m2etr"]
+[ext_resource type="PackedScene" uid="uid://bvknhvq25lt87" path="res://Scenes/System/Gameplay/demon_blue.tscn" id="5_7v3cv"]
+
+[sub_resource type="Curve2D" id="Curve2D_o2j05"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 320, 80, 0, 0, 0, 0, 460, 40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_0wb0b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 460, 40, 0, 0, 0, 0, 420, 180)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_x1bed"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 420, 180, 0, 0, 0, 0, 460, 320)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_yoa26"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 460, 320, 0, 0, 0, 0, 320, 280)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_i4ey7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 320, 280, 0, 0, 0, 0, 180, 320)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cguj6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 180, 320, 0, 0, 0, 0, 220, 180)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_dq4tw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 220, 180, 0, 0, 0, 0, 180, 40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_4jbh1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 180, 40, 0, 0, 0, 0, 320, 80)
+}
+point_count = 2
+
+[node name="level" instance=ExtResource("1_1rx7o")]
+situation = 1
+level = 7
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_md81k")]
+position = Vector2(320, 180)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_b7awo")]
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_6dlkk")]
+position = Vector2(-23, 0)
+type = 1
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_6dlkk")]
+position = Vector2(28, 0)
+type = 1
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_b7awo")]
+layer = 2
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_6dlkk")]
+position = Vector2(-43, 0)
+
+[node name="projectile2" parent="sources/source/wheel2" index="2" instance=ExtResource("4_6dlkk")]
+position = Vector2(49, 0)
+
+[node name="source2" parent="sources" index="1" instance=ExtResource("2_md81k")]
+position = Vector2(80, 180)
+
+[node name="wheel" parent="sources/source2" index="1" instance=ExtResource("3_b7awo")]
+
+[node name="projectile" parent="sources/source2/wheel" index="1" instance=ExtResource("4_6dlkk")]
+position = Vector2(24, 0)
+type = 1
+
+[node name="source3" parent="sources" index="2" instance=ExtResource("2_md81k")]
+position = Vector2(560, 180)
+
+[node name="wheel" parent="sources/source3" index="1" instance=ExtResource("3_b7awo")]
+
+[node name="projectile" parent="sources/source3/wheel" index="1" instance=ExtResource("4_6dlkk")]
+position = Vector2(-23, 0)
+type = 1
+
+[node name="demon_red" parent="demons" index="0" instance=ExtResource("4_m2etr")]
+position = Vector2(250, 110)
+
+[node name="demon_red2" parent="demons" index="1" instance=ExtResource("4_m2etr")]
+position = Vector2(390, 110)
+
+[node name="demon_red3" parent="demons" index="2" instance=ExtResource("4_m2etr")]
+position = Vector2(250, 250)
+
+[node name="demon_red4" parent="demons" index="3" instance=ExtResource("4_m2etr")]
+position = Vector2(390, 250)
+
+[node name="demon_blue" parent="demons" index="4" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_o2j05")
+
+[node name="demon_blue2" parent="demons" index="5" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_0wb0b")
+
+[node name="demon_blue3" parent="demons" index="6" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_x1bed")
+
+[node name="demon_blue4" parent="demons" index="7" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_yoa26")
+
+[node name="demon_blue5" parent="demons" index="8" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_i4ey7")
+
+[node name="demon_blue6" parent="demons" index="9" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_cguj6")
+
+[node name="demon_blue7" parent="demons" index="10" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_dq4tw")
+
+[node name="demon_blue8" parent="demons" index="11" instance=ExtResource("5_7v3cv")]
+curve = SubResource("Curve2D_4jbh1")

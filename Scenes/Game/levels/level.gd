@@ -27,6 +27,10 @@ func inhale():
 # Then all else fades while demons are checked
 # Then, reset -> emit prepared signal to try again.
 func exhale(strength):
+	for d in $demons.get_children():
+		if d.has_method('deactivate'):
+			d.deactivate()
+	
 	for s in $sources.get_children():
 		s.exhale_projectiles(strength) # causes fading of wheel and projectiles
 	$AnimationPlayer.play("fade_out")

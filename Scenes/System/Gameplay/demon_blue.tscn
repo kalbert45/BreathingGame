@@ -1,0 +1,195 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvknhvq25lt87"]
+
+[ext_resource type="Script" path="res://Scenes/System/Gameplay/demon_blue.gd" id="1_vkhxm"]
+[ext_resource type="Texture2D" uid="uid://bf63uypiy38ld" path="res://Assets/Sprites/Gameplay/demon_blue.png" id="2_wmjbk"]
+[ext_resource type="AudioStream" uid="uid://cnrych4je1yqt" path="res://Assets/Sounds/SFX/demon_hit_fan.wav" id="3_mwqe2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wu7fr"]
+radius = 17.0
+
+[sub_resource type="Animation" id="Animation_elmxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_q4p30"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p144x"]
+resource_name = "respawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_atjti"]
+resource_name = "first_hit"
+length = 0.50001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.47451), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 28]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m6t4"]
+_data = {
+"RESET": SubResource("Animation_elmxf"),
+"first_hit": SubResource("Animation_atjti"),
+"hit": SubResource("Animation_q4p30"),
+"respawn": SubResource("Animation_p144x")
+}
+
+[sub_resource type="Animation" id="Animation_6f06k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dy5cf"]
+resource_name = "idle"
+length = 2.00002
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333334, 0.500001, 0.666668, 0.833335, 1, 1.16667, 1.33334, 1.5, 1.66667, 1.83334, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqqwj"]
+_data = {
+"RESET": SubResource("Animation_6f06k"),
+"idle": SubResource("Animation_dy5cf")
+}
+
+[node name="demon_blue" type="Path2D"]
+script = ExtResource("1_vkhxm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(208, 61)
+rotates = false
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+texture = ExtResource("2_wmjbk")
+hframes = 12
+vframes = 2
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+visible = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+shape = SubResource("CircleShape2D_wu7fr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D"]
+root_node = NodePath("../..")
+autoplay = "respawn"
+libraries = {
+"": SubResource("AnimationLibrary_0m6t4")
+}
+
+[node name="IdlePlayer" type="AnimationPlayer" parent="PathFollow2D"]
+root_node = NodePath("../..")
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_pqqwj")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PathFollow2D"]
+stream = ExtResource("3_mwqe2")
+volume_db = 9.009
+
+[connection signal="area_entered" from="PathFollow2D/Area2D" to="." method="_on_area_2d_area_entered"]

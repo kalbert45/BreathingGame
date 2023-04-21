@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://byqsujkx17i7w"]
+
+[ext_resource type="PackedScene" uid="uid://b3lsc47kovl88" path="res://Scenes/Game/levels/level.tscn" id="1_74r15"]
+[ext_resource type="PackedScene" uid="uid://bi16eyjm3fv85" path="res://Scenes/System/Gameplay/source.tscn" id="2_g5bu8"]
+[ext_resource type="PackedScene" uid="uid://cferaatswsl3t" path="res://Scenes/System/Gameplay/wheel.tscn" id="3_bi8rp"]
+[ext_resource type="PackedScene" uid="uid://crwyhvr06i7o0" path="res://Scenes/System/Gameplay/projectile.tscn" id="4_ln5wm"]
+[ext_resource type="PackedScene" uid="uid://bvknhvq25lt87" path="res://Scenes/System/Gameplay/demon_blue.tscn" id="5_2mq6g"]
+
+[sub_resource type="Curve2D" id="Curve2D_f0523"]
+_data = {
+"points": PackedVector2Array(-51.3913, 0, 50, 0, 320, 80, 0, -50, -1.33484, 50.0565, 420, 180)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qon0u"]
+_data = {
+"points": PackedVector2Array(-2.66968, -40.0452, 0, 50, 420, 180, 50, 0, -51.3913, -2.00226, 320, 280)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_2jtad"]
+_data = {
+"points": PackedVector2Array(0, 0, -50, 0, 320, 280, 0, 50, 0, 0, 220, 180)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ijrav"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, -50, 220, 180, -50, 0, 0, 0, 320, 80)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jmxvr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, -75, 470, 180, 75, 0, 0, 0, 320, 30)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ew2ra"]
+_data = {
+"points": PackedVector2Array(0, 0, -75, 0, 320, 30, 0, -75, 0, 0, 170, 180)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_arvl5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 75, 170, 180, -75, 0, 0, 0, 320, 330)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1o70j"]
+_data = {
+"points": PackedVector2Array(0, 0, 75, 0, 320, 330, 0, 75, 0, 0, 470, 180)
+}
+point_count = 2
+
+[node name="level" instance=ExtResource("1_74r15")]
+situation = 1
+level = 5
+
+[node name="source" parent="sources" index="0" instance=ExtResource("2_g5bu8")]
+position = Vector2(320, 180)
+
+[node name="wheel" parent="sources/source" index="1" instance=ExtResource("3_bi8rp")]
+
+[node name="projectile" parent="sources/source/wheel" index="1" instance=ExtResource("4_ln5wm")]
+position = Vector2(-36, 0)
+type = 1
+
+[node name="projectile2" parent="sources/source/wheel" index="2" instance=ExtResource("4_ln5wm")]
+position = Vector2(37, 0)
+type = 1
+
+[node name="wheel2" parent="sources/source" index="2" instance=ExtResource("3_bi8rp")]
+layer = 2
+
+[node name="projectile" parent="sources/source/wheel2" index="1" instance=ExtResource("4_ln5wm")]
+position = Vector2(-69, 0)
+
+[node name="projectile2" parent="sources/source/wheel2" index="2" instance=ExtResource("4_ln5wm")]
+position = Vector2(72, 0)
+
+[node name="demon_blue" parent="demons" index="0" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_f0523")
+
+[node name="demon_blue2" parent="demons" index="1" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_qon0u")
+
+[node name="demon_blue3" parent="demons" index="2" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_2jtad")
+
+[node name="demon_blue4" parent="demons" index="3" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_ijrav")
+
+[node name="demon_blue5" parent="demons" index="4" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_jmxvr")
+
+[node name="demon_blue6" parent="demons" index="5" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_ew2ra")
+
+[node name="demon_blue7" parent="demons" index="6" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_arvl5")
+
+[node name="demon_blue8" parent="demons" index="7" instance=ExtResource("5_2mq6g")]
+curve = SubResource("Curve2D_1o70j")
