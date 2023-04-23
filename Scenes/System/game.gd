@@ -66,11 +66,11 @@ func _on_Level_Cleared(s, l):
 	else:
 		active = false
 		$MovingBackground/AnimationPlayer.play("outro")
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(3.0).timeout
 		set_clear_button(s, l)
 		
 func set_clear_button(s, l):
-	situation = s + 1
+	situation = s+1
 	if situation < 2:
 		$ClearButton.text = "Next"
 		$ClearButton.position = Vector2(296, 248)
@@ -123,7 +123,7 @@ func _on_clear_button_pressed():
 	if situation < 2:
 		$ClearButton/AnimationPlayer.play("despawn")
 		await get_tree().create_timer(1.0).timeout
-		SignalBus.emit_signal('level_start', situation+1, 0)
+		SignalBus.emit_signal('level_start', situation, 0)
 	else:
 		$ClearButton/AnimationPlayer.play("despawn")
 		await get_tree().create_timer(1.0).timeout

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://beofdyu3ikuob"]
+
+[ext_resource type="Texture2D" uid="uid://crqix6pbateg2" path="res://Assets/Sprites/HUD/grabber.png" id="1_ud0xp"]
+[ext_resource type="Texture2D" uid="uid://hk46epap4b62" path="res://Assets/Sprites/HUD/tick.png" id="2_vh17f"]
+[ext_resource type="Texture2D" uid="uid://dvl0u67ofajer" path="res://Assets/Sprites/HUD/sound_symbol.png" id="3_syqw6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2uwm"]
+bg_color = Color(0.223529, 0.290196, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ukap"]
+bg_color = Color(0.223529, 0.290196, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3fs3"]
+bg_color = Color(0.6, 0.6, 0.6, 0.45098)
+border_width_left = 6
+border_color = Color(0.0823529, 0.113725, 0.156863, 1)
+
+[sub_resource type="Theme" id="Theme_okop6"]
+VSlider/constants/grabber_offset = 0
+VSlider/icons/grabber = ExtResource("1_ud0xp")
+VSlider/icons/grabber_disabled = ExtResource("1_ud0xp")
+VSlider/icons/grabber_highlight = ExtResource("1_ud0xp")
+VSlider/icons/tick = ExtResource("2_vh17f")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_x2uwm")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_6ukap")
+VSlider/styles/slider = SubResource("StyleBoxFlat_f3fs3")
+
+[node name="Volume_slider" type="VSlider"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -590.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_okop6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 87.0
+offset_right = 31.0
+offset_bottom = 99.0
+texture = ExtResource("3_syqw6")

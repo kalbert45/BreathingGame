@@ -14,7 +14,8 @@ config/name="Focus"
 run/main_scene="res://Scenes/System/game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/bg_color=Color(0.0352941, 0.0392157, 0.0784314, 1)
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://Assets/Sprites/Gameplay/demon_white.png"
 
 [autoload]
 

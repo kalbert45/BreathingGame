@@ -204,7 +204,6 @@ texture = ExtResource("1_uhsvh")
 script = ExtResource("1_dr10j")
 
 [node name="visuals" type="Node2D" parent="."]
-visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="visuals"]
 anchors_preset = 8
@@ -222,8 +221,8 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="visuals/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(640, 640)
-render_target_update_mode = 0
+size = Vector2i(1280, 640)
+render_target_update_mode = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="visuals/SubViewportContainer/SubViewport"]
 transform = Transform3D(2.366, 0, 0, 0, 2.366, 0, 0, 0, 2.366, 0, 0, 0)
